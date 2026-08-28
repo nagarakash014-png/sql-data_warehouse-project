@@ -1,0 +1,52 @@
+ /*
+Create Data Warehouse and Schemas
+
+Script Purpose:
+This script creates a new database named 'Datahouse' after checking whether
+the database already exists.
+
+If the database already exists, it will be dropped and recreated.
+
+The database contains three schemas that represent different layers of the
+data warehouse:
+
+Bronze: Raw data layer
+Silver: Cleaned and transformed data layer
+Gold: Business-ready data layer
+
+Warning:
+Running this script will permanently DROP the 'Datahouse' database if it
+already exists. Any existing data in the database will be deleted.
+
+Make sure you have the appropriate permissions and a backup of any important
+data before running this script.
+*/
+
+
+use master;
+
+-- drop and recreate the 'Datahouse' database
+if exists (select 1 from sys.databases where name = 'Datahouuse')
+Begin
+ alter database 'Datahouse'  
+set single_user 
+with rollback immediate
+drop database 'Datahouse'
+end
+
+-- Create the Database 'Datahouse'
+
+create database Datahouse
+go
+
+-- create schemas of 'Datahouse' Database
+
+  Create Schema Bronze;
+  go
+  Create schema Slver;
+  go
+  create schema Gold;
+  go
+
+
+
