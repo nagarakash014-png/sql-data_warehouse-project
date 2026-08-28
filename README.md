@@ -14,20 +14,11 @@ Design data models suitable for business reporting
 Analyze business performance and identify trends
 Create KPIs and meaningful business insights
 Support better business decision-making
+
 🔄 Project Workflow
-Raw Data
-   ↓
-Extract
-   ↓
-Transform & Clean
-   ↓
-Data Warehouse
-   ↓
-Business Analysis
-   ↓
-KPIs & Insights
-   ↓
-Reports / Dashboards
+
+Raw Data → Extract → Transform & Clean → Data Warehouse → Business Analysis → KPIs & Insights → Reports / Dashboards
+
 🏗️ Data Warehouse
 
 The data warehouse organizes data into structured fact and dimension tables, making it easier to analyze business performance across areas such as customers, products, sales, and time.
@@ -47,6 +38,7 @@ ETL – Data integration and preparation
 Data Warehouse – Structured analytical storage
 Power BI / BI Tools – Reporting and visualization
 Git & GitHub – Version control and documentation
+
 👨‍💼 About Me
 
 I am an aspiring Business Analyst interested in using data to understand business problems, identify trends, define meaningful KPIs, and provide actionable insights.
