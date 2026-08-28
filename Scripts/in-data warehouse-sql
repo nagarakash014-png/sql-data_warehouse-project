@@ -28,12 +28,12 @@ data before running this script.
 use master;
 
 -- drop and recreate the 'Datahouse' database
-if exists (select 1 from sys.databases where name = 'Datahouuse')
+if exists (select 1 from sys.databases where name = 'Datahouse')
 Begin
- alter database 'Datahouse'  
+ alter database Datahouse 
 set single_user 
 with rollback immediate
-drop database 'Datahouse'
+drop database Datahouse
 end
 
 -- Create the Database 'Datahouse'
