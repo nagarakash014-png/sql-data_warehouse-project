@@ -7,6 +7,7 @@ This project focuses on building a data warehouse using an ETL (Extract, Transfo
 The goal is to transform raw data into structured, reliable information that can help businesses understand performance and make data-driven decisions.
 
 🎯 Project Objectives
+
 Build a structured data warehouse
 Develop an ETL pipeline to extract, transform, and load data
 Clean and prepare data for analysis
@@ -32,11 +33,17 @@ Which products or customers perform best?
 Where are we seeing growth or decline?
 What factors are affecting business performance?
 What insights can support better decisions?
+
 🛠️ Technologies
+
 SQL – Data extraction, transformation, querying, and analysis
+
 ETL – Data integration and preparation
+
 Data Warehouse – Structured analytical storage
+
 Power BI / BI Tools – Reporting and visualization
+
 Git & GitHub – Version control and documentation
 
 👨‍💼 About Me
