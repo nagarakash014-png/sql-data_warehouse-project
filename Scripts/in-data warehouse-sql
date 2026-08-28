@@ -2,6 +2,7 @@
 Create Data Warehouse and Schemas
 
 Script Purpose:
+
 This script creates a new database named 'Datahouse' after checking whether
 the database already exists.
 
@@ -15,6 +16,7 @@ Silver: Cleaned and transformed data layer
 Gold: Business-ready data layer
 
 Warning:
+
 Running this script will permanently DROP the 'Datahouse' database if it
 already exists. Any existing data in the database will be deleted.
 
