@@ -1,3 +1,13 @@
+COMMIT MESSAGE:
+feat: initialize database table setup for bronze and silver layers
+
+- Add standalone table DDL schemas for bronze and silver layers
+- Establish database structures with exact column definitions
+- Include safe IF OBJECT_ID checks to drop tables before recreation
+
+=========================================================================
+SQL SCRIPT FILE CONTENT:
+=========================================================================
 -- =========================================================================
 -- BRONZE LAYER TABLES
 -- =========================================================================
