@@ -1,7 +1,7 @@
 COMMIT MESSAGE:
-feat: initialize database table setup for bronze and silver layers
+feat: initialize database table setup for bronze
 
-- Add standalone table DDL schemas for bronze and silver layers
+- Add standalone table DDL schemas for bronze 
 - Establish database structures with exact column definitions
 - Include safe IF OBJECT_ID checks to drop tables before recreation
 
@@ -61,35 +61,35 @@ GO
 
 
 -- =========================================================================
--- SILVER LAYER TABLES
+-- bronze LAYER TABLES
 -- =========================================================================
 
--- 4. Table: silver.erp_cust_az12
-IF OBJECT_ID ('silver.erp_cust_az12','u') IS NOT NULL
-    DROP TABLE silver.erp_cust_az12;
+-- 4. Table: bronze.erp_cust_az12
+IF OBJECT_ID ('bronze.erp_cust_az12','u') IS NOT NULL
+    DROP TABLE bronze.erp_cust_az12;
 
-CREATE TABLE silver.erp_cust_az12 (
+CREATE TABLE bronze.erp_cust_az12 (
     cid    NVARCHAR(40),
     bdate  DATE,
     gender NVARCHAR(23)
 );
 GO
 
--- 5. Table: silver.erp_loc_A101
-IF OBJECT_ID ('silver.erp_loc_A101' ,'u') IS NOT NULL
-    DROP TABLE silver.erp_loc_A101;
+-- 5. Table: bronze.erp_loc_A101
+IF OBJECT_ID ('bronze.erp_loc_A101' ,'u') IS NOT NULL
+    DROP TABLE bronze.erp_loc_A101;
 
-CREATE TABLE silver.erp_loc_A101 (
+CREATE TABLE bronze.erp_loc_A101 (
     cid     NVARCHAR(45),
     country NVARCHAR(56)
 );
 GO
 
--- 6. Table: silver.erp_px_cat_giv2
-IF OBJECT_ID ('silver.erp_px_cat_giv2' ,'u') IS NOT NULL
-    DROP TABLE silver.erp_px_cat_giv2;
+-- 6. Table: bronze.erp_px_cat_giv2
+IF OBJECT_ID ('bronze.erp_px_cat_giv2' ,'u') IS NOT NULL
+    DROP TABLE bronze.erp_px_cat_giv2;
 
-CREATE TABLE silver.erp_px_cat_giv2 (
+CREATE TABLE bronze.erp_px_cat_giv2 (
     id          NVARCHAR(25),
     categorie   NVARCHAR(45),
     sub_cat     NVARCHAR(45),
