@@ -235,6 +235,7 @@ BEGIN
         PRINT '>> error occured during loading '
         PRINT 'Error Message '+ ERROR_MESSAGE();
         PRINT 'Error number' + CAST(ERROR_NUMBER() AS NVARCHAR);
+        PRINT 'Error line' + CAST(ERROR_line() AS NVARCHAR);
         PRINT '==========================='
     END CATCH
 END;
