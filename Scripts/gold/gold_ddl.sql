@@ -1,3 +1,19 @@
+/*
+===============================================================================
+DDL Script: Create Gold Views
+===============================================================================
+Description:
+    This script defines the analytical views for the Gold layer in the Data Warehouse.
+    It transitions the data architecture into a Star Schema model by establishing:
+    1. gold.dim_cust   - Customer Dimension (with standard gender formatting)
+    2. gold.dim_prd    - Product Dimension (filtered for active products)
+    3. gold.fact_sales - Sales Fact Table (linked to Customer and Product dimensions)
+
+Usage:
+    Execute this script in its entirety to deploy or refresh the Gold views.
+===============================================================================
+*/
+
 -- =========================================================================
 -- View 1: gold.dim_cust
 -- =========================================================================
@@ -96,5 +112,3 @@ left join  gold.dim_cust as g
 on s.sls_cust_id = g.cust_id
 
 go
-
-
