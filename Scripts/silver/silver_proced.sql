@@ -256,7 +256,7 @@ print'-------------------------'
 
 insert into silver.erp_px_cat_giv2 (id,categorie,sub_cat,maintenance)
 select
-id,
+replace(id,'_','-'), 
 categorie,
 sub_cat,
 miantenance
