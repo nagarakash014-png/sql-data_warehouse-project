@@ -33,13 +33,13 @@ The project follows the **Medallion Architecture** pattern:
 ### System & Architecture Diagrams
 
 #### 1. Data Flow Diagram
-[![Data Flow Diagram](docs/images/Data_flow.png)](docs/images/Data_flow.drawio)
+[![Data Flow Diagram](docs/Data_flow.png)](docs/Data_flow.drawio)
 
 #### 2. Data Integration Diagram
-[![Data Integration Diagram](docs/images/Data_integration.png)](docs/images/Data_integration.drawio)
+[![Data Integration Diagram](docs/Data_integration.png)](docs/Data_integration.drawio)
 
 #### 3. Data Model Diagram (Star Schema)
-[![Data Model Diagram](docs/images/Data_Model.png)](docs/images/Data_Model.drawio)
+[![Data Model Diagram](docs/Data_Model.png)](docs/Data_Model.drawio)
 
 ---
 
