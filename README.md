@@ -45,23 +45,34 @@ The project follows the **Medallion Architecture** pattern:
 
 ## 📂 Repository Structure
 
+---
+
+## 📂 Repository Structure
+
 ```text
-├── docs/
-│   ├── images/
-│   │   ├── data-flow.png
-│   │   ├── data-flow.draw.io
-│   │   ├── data-integration.png
-│   │   ├── data-integration.draw.io
-│   │   ├── data-model.png
-│   │   └── data-model.draw.io
-│   └── gold_layer_data_catalog.md
-├── scripts/
+├── Scripts/
 │   ├── bronze/
-│   │   └── data_quality_checks.sql
+│   │   ├── bronze_ddl.sql
+│   │   └── bronze_proced.sql
 │   ├── silver/
-│   │   └── ddl_silver_tables.sql
-│   └── gold/
-│       └── ddl_gold_views.sql
+│   │   ├── silver_ddl.sql
+│   │   └── silver_proced.sql
+│   ├── gold/
+│   │   └── gold_ddl.sql
+│   └── in-data warehouse-sql/
+├── Tests/
+│   ├── gold_quality_check.sql
+│   ├── silver_quality_check.sql
+│   └── Plaaning/
+├── docs/
+│   ├── Data_flow.png
+│   ├── Data_flow.drawio
+│   ├── Data_integration.png
+│   ├── Data_integration.drawio
+│   ├── Data_Model.png
+│   ├── Data_Model.drawio
+│   ├── gold_layer_data_catalog.md
+│   └── planing/
 ├── README.md
 └── LICENSE
 ```
