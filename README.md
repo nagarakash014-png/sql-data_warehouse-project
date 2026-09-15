@@ -1,67 +1,28 @@
-# Data Warehouse & Analytics Project
-
-Welcome to my Data Warehouse & Analytics Project.
-
-This project focuses on building a data warehouse using an ETL (Extract, Transform, Load) process and using the prepared data for business analysis, reporting, and insight generation.
-
-The goal is to transform raw data into structured, reliable information that can help businesses understand performance and make data-driven decisions.
-
-🎯 Project Objectives
-
-Build a structured data warehouse
-Develop an ETL pipeline to extract, transform, and load data
-Clean and prepare data for analysis
-Design data models suitable for business reporting
-Analyze business performance and identify trends
-Create KPIs and meaningful business insights
-Support better business decision-making
-
-🔄 Project Workflow
-
-Raw Data → Extract → Transform & Clean → Data Warehouse → Business Analysis → KPIs & Insights → Reports / Dashboards
-
-🏗️ Data Warehouse
-
-The data warehouse organizes data into structured fact and dimension tables, making it easier to analyze business performance across areas such as customers, products, sales, and time.
-
-📈 Business Analysis
-
-The analysis focuses on answering business questions such as:
-
-What are the key performance trends?
-Which products or customers perform best?
-Where are we seeing growth or decline?
-What factors are affecting business performance?
-What insights can support better decisions?
-
-🛠️ Technologies
-
-SQL – Data extraction, transformation, querying, and analysis
-
-ETL – Data integration and preparation
-
-Data Warehouse – Structured analytical storage
-
-Power BI / BI Tools – Reporting and visualization
-
-Git & GitHub – Version control and documentation
-
-👨‍💼 About Me
-
-I am an aspiring Business Analyst interested in using data to understand business problems, identify trends, define meaningful KPIs, and provide actionable insights.
-
-Through this project, I am developing practical skills in SQL, data analysis, business intelligence, data warehousing, requirements thinking, and business problem-solving.
-
-My goal is to bridge the gap between business needs and data-driven solutions.
-
-🚧 Project Status
-
-In Progress — this repository will continue to evolve as I add new analyses, KPIs, reports, and improvements to the data warehouse.
-
-📄 License
-
-This project is licensed under the MIT License.
-
-See the LICENSE file for more information.
-
-⭐ If you find this project useful, feel free to explore the repository and follow my progress.
+📊 Data Warehouse & Analytics ProjectWelcome to the Data Warehouse & Analytics Project. This project demonstrates an end-to-end Data Warehouse solution built using a Medallion Architecture (Bronze, Silver, Gold layers). The pipeline extracts raw source data (CRM & ERP), cleans and normalizes it, transforms it into a Star Schema, and serves presentation-ready datasets for business intelligence and analytics.🎯 Project ObjectivesData Architecture: Implement a structured multi-layer Data Warehouse (Bronze $\rightarrow$ Silver $\rightarrow$ Gold).ETL Pipeline: Extract, transform, and load data seamlessly while maintaining data integrity.Data Quality: Clean, deduplicate, and validate source data prior to reporting.Dimensional Modeling: Design a Star Schema optimized for analytical querying.Business Insights: Enable key business metrics, performance tracking, and KPI generation.🔄 Project Workflow & ArchitectureThe project follows the Medallion Architecture pattern:+------------------+      +--------------------+      +----------------------+
+|   Bronze Layer   | ---> |    Silver Layer    | ---> |      Gold Layer      |
+|  (Raw Ingestion) |      | (Cleaned/Conformed)|      |     (Star Schema)    |
++------------------+      +--------------------+      +----------------------+
+                                                                 |
+                                                                 v
+                                                      +----------------------+
+                                                      | BI & Analytics Tools |
+                                                      +----------------------+
+System & Architecture Diagrams1. Data Flow Diagram2. Data Integration Diagram3. Data Model Diagram (Star Schema)📂 Repository StructurePlaintext├── docs/
+│   ├── images/
+│   │   ├── data-flow.png
+│   │   ├── data-flow.draw.io
+│   │   ├── data-integration.png
+│   │   ├── data-integration.draw.io
+│   │   ├── data-model.png
+│   │   └── data-model.draw.io
+│   └── gold_layer_data_catalog.md
+├── scripts/
+│   ├── bronze/
+│   │   └── data_quality_checks.sql
+│   ├── silver/
+│   │   └── ddl_silver_tables.sql
+│   └── gold/
+│       └── ddl_gold_views.sql
+├── README.md
+└── LICENSE
+🛠️ Data Warehouse Layers1. Bronze Layer (Raw Ingestion & Quality Control)Purpose: Ingests raw data directly from CRM and ERP systems.Key Operations: Automated SQL auditing scripts check for primary key duplicates, NULL values, string whitespace issues, and out-of-range dates.2. Silver Layer (Cleansing & Transformation)Purpose: Standardizes data types, enforces schema constraints, and handles missing or inconsistent domain values.Tables:silver.crm_cust_infosilver.crm_prd_infosilver.crm_sales_detailssilver.erp_loc_a101silver.erp_cust_az12silver.erp_px_cat_giv23. Gold Layer (Presentation & Star Schema)Purpose: Delivers analytical views modeled into dimensions and facts for reporting.Gold Data Catalog Overviewgold.dim_custPurpose: Stores customer details enriched with demographic and geographic data.Column NameData TypeDescriptioncust_keyINTSurrogate key uniquely identifying each customer record in the dimension table.cust_idINTUnique numerical identifier assigned to each customer from the source system.cust_numberNVARCHAR(80)Alphanumeric identifier representing the customer, used for tracking and cross-system joins.first_nameNVARCHAR(80)The customer's first name.last_nameNVARCHAR(80)The customer's last name or family name.genderVARCHAR(20)Standardized gender of the customer (e.g., 'Male', 'Female', 'UN').countryNVARCHAR(78)The country of residence for the customer.martial_statusVARCHAR(20)The marital status of the customer.birth_dateDATEThe date of birth of the customer.gold.dim_prdPurpose: Stores product details enriched with category hierarchy and maintenance details.Column NameData TypeDescriptionproduct_keyINTSurrogate key uniquely identifying each active product record in the dimension table.product_idINTUnique numerical identifier assigned to each product.categorie_idNVARCHAR(80)Identifier representing the product category lookup reference.product_numberNVARCHAR(80)Alphanumeric code representing the product, used for linking to sales facts.product_nameNVARCHAR(80)The official name of the product.costINTThe unit cost of the product.categorieNVARCHAR(80)The main category to which the product belongs.sub_categorieNVARCHAR(40)The sub-category detailing the product classification.product_lineNVARCHAR(40)The specific product line or segment.maintenanceNVARCHAR(10)Maintenance requirements or service code for the product.start_dateDATEThe effective start date from when the product record became active.end_dateDATEThe expiration date of the product record (NULL indicates an active product).gold.fact_salesPurpose: Stores sales transactions and links them to customer and product dimensions for analytical reporting.Column NameData TypeDescriptionorder_numberNVARCHAR(80)Alphanumeric identifier for the unique sales order line item.product_keyINTForeign key referencing gold.dim_prd to identify the product purchased.cust_keyINTForeign key referencing gold.dim_cust to identify the purchasing customer.order_dateDATEThe date on which the order was placed.ship_dateDATEThe date on which the order was shipped.due_dateDATEThe date on which payment or delivery is due.salesINTTotal monetary value of the sales order line item.quantityINTThe number of product units purchased.priceINTThe unit price of the product at the time of purchase.🛠️ Technologies UsedSQL (T-SQL): Data extraction, cleansing, transformation, view creation, and analytical modeling.Draw.io: System architecture, data flow, and dimensional modeling diagrams.Data Warehouse: Multi-tier Medallion Architecture (Bronze, Silver, Gold).Git & GitHub: Source control, documentation, and release management.👨‍💼 About MeI am an aspiring Business Analyst focused on leveraging data warehousing and analytics to solve complex business problems, define key metrics, and support data-driven decision-making.Through this project, I developed hands-on expertise in SQL-based ETL processing, data quality assurance, star schema modeling, and documentation standards.📄 LicenseThis project is licensed under the MIT License. See the LICENSE file for details.
