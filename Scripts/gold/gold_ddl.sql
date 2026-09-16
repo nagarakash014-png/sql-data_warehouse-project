@@ -36,7 +36,10 @@ last_name,
 case when cst_gndr in ('Female','Male') then cst_gndr 
 else coalesce(gender,'UN')
 end as gender,
-country,
+case when country in ('USA','US','United States') then 'USA'
+when country is null then 'N/A'
+else country
+end country,
 martial_status,
 bdate as birth_date
 from silver.crm_cust_info as s
